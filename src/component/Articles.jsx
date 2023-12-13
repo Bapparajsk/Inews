@@ -14,7 +14,7 @@ const Articles = (props) => {
 
     const fetchData = async (pageNumber) => {
         try {
-            const url = `https://newsapi.org/v2/${props.newsName}?${props.country !== undefined ? `country=${props.country}&` : ''}apiKey=7bcc1f2095bd4fe0b60445c0ec26f9a6${props.q !== undefined ? `&q=${props.q}` : ''}&page=${pageNumber}&pageSize=10`;
+            const url = `https://newsapi.org/v2/${props.newsName}?${props.country !== undefined ? `country=${props.country}&` : ''}apiKey=${process.env.REACT_APP_API_KEY}${props.q !== undefined ? `&q=${props.q}` : ''}&page=${pageNumber}&pageSize=10`;
             const response = await axios.get(url);
             return response.data;
         } catch (error) {
@@ -55,7 +55,7 @@ const Articles = (props) => {
 
             props.setprogress(100);
         });
-    }, []);
+    }, [props.q]);
 
     return (
         <div className={'flex flex-wrap justify-center'}>

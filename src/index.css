@@ -3,5 +3,78 @@
 @tailwind utilities;
 
 html, body {
+    width: 100vw;
+    height: 100vh;
     background-color: #0D1117;
+    overflow-x: hidden;
+}
+@media screen and (max-width: 890px) {
+    .nav-item, .input-text {
+        font-size: 13px;
+    }
+    .search {
+        width: 40px;
+        height: 30px;
+    }
+}
+
+@media screen and (max-width: 770px) {
+    .right-nav-item {
+        position: absolute;
+        width: auto;
+        height: 230px;
+        background-color: #ffffff;
+        flex-direction: column;
+        right: -200px;
+        top: 51px;
+        border-radius: 10px;
+        box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+        transition: all .3s ease-out;
+        .nav-item {
+            margin-top: 20px;
+            color: black;
+        }
+    }
+
+    .show-bar {
+        right: 2px;
+    }
+    .show-button {
+        display: inline;
+        color: aliceblue;
+        i {
+            transition: all .2s linear;
+        }
+    }
+
+    .show-button:hover {
+        border: 2px solid rgba(213, 213, 213, 0.71);
+        i {
+            transform: translateX(-4px);
+        }
+    }
+}
+
+@media screen and (max-width: 400px)  {
+    .navbar {
+        height: 80px;
+        flex-direction: column;
+    }
+
+    .form {
+        width: 80vw;
+        justify-content: center;
+    }
+
+    .input-text {
+        width: calc(100% - 50px);
+    }
+
+    .right-nav-item {
+        top: 82px;
+    }
+
+    .left-item {
+        font-size: 14px;
+    }
 }
